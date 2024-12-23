@@ -38,4 +38,4 @@ BigQuery
 ![BigQuery](images_readme/8_bigquery.png)
 
 DBT Lineage Graph
-![DBT Lineage Graph](9_dbt_lineagegraph.png)
+![DBT Lineage Graph](images_readme/9_dbt_lineagegraph.png)
