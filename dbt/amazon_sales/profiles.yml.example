@@ -1,0 +1,11 @@
+ amazon_sales:
+  target: prod
+  outputs:
+    prod:
+      type: bigquery
+      method: oauth
+      project: <your-project-id>
+      dataset: <your-dataset>
+      threads: 4
+      timeout_seconds: 300
+      location: US

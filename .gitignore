@@ -1,0 +1,28 @@
+# Custom folders to ignore
+not_for_github/
+~/
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Environment
+.env
+.venv/
+venv/
+ENV/
+
+# dbt
+sources.yml
+.user.yml
+profiles.yml
+.dbt/
+~/.dbt/
+target/
+dbt_packages/
+logs/
+
+# Credentials
+*.json
+service_account_keys/
