@@ -3,7 +3,11 @@ SELECT
     u.user_id,
     u.user_name,
     u.simple_user_name,
-    SUM(CAST(f.actual_price AS FLOAT64)) AS total_spend
+    SUM(
+        SAFE_CAST(
+            REPLACE(REPLACE(REPLACE(REPLACE(f.actual_price, '₹', ''), ',', ''), '−', '-'), ' ', '') AS FLOAT64
+        )
+    ) AS total_spend
 FROM
     {{ ref('fact_sales') }} AS f
 LEFT JOIN

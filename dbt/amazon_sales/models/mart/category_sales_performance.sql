@@ -1,7 +1,11 @@
 -- models/mart/category_sales_performance.sql
 SELECT
     p.category,
-    SUM(CAST(f.actual_price AS FLOAT64)) AS revenue_generated,
+    SUM(
+        SAFE_CAST(
+            REPLACE(REPLACE(REPLACE(REPLACE(f.actual_price, '₹', ''), ',', ''), '−', '-'), ' ', '') AS FLOAT64
+        )
+    ) AS revenue_generated,
     AVG(SAFE_CAST(f.rating AS FLOAT64)) AS average_rating
 FROM
     {{ ref('fact_sales') }} AS f

@@ -4,7 +4,11 @@ WITH category_revenue_per_user AS (
         f.user_id,
         u.simple_user_name,  -- Include simple_user_name from dim_users
         p.category,
-        SUM(CAST(f.actual_price AS FLOAT64)) AS total_revenue,
+        SUM(
+        SAFE_CAST(
+            REPLACE(REPLACE(REPLACE(REPLACE(f.actual_price, '₹', ''), ',', ''), '−', '-'), ' ', '') AS FLOAT64
+        )
+        ) AS total_revenue,
         COUNT(f.product_id) AS order_count
     FROM
         {{ ref('fact_sales') }} AS f

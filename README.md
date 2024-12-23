@@ -1,8 +1,8 @@
 # pubsub-elt-pipeline
 
-- The purpose of this project is to learn how to use the following tools specifically: Pub/Sub, Cloud Composer, BigQuery, and DBT. 
+- The purpose of this project is to learn how to use the following tools specifically: Pub/Sub, Cloud Composer, BigQuery, DBT, and Looker Studio. 
 
-- This project expands on my previous project "amazon-elt-pipeline" where I utilized a local csv data source, and local airflow. In this project, I import the sample amazon sales data to a Google Sheet in order to simulate a live data environment and utilize Pub/Sub to perform event driven data ingestion. In lieu of running a local Apache Airflow environment, I opted to utilize Cloud Composer. I did not build any visuals in this case, as the focus was on implementing a working Cloud Composer environment, and successfully publishing and pulling messages from Pub/Sub.
+- This project expands on my previous project "amazon-elt-pipeline" where I utilized a local csv data source, and local airflow. In this project, I import the sample amazon sales data to a Google Sheet in order to simulate a live data environment and utilize Pub/Sub to perform event driven data ingestion. In lieu of running a local Apache Airflow environment, I opted to utilize Cloud Composer. The visuals this time were recreated in Looker Studio.
 
 - I utilized an AppsScript within the Google Sheet and created an onEdit trigger to publish a message to Pub/Sub. My Composer environment is setup to be a subscriber in this case, and the DAG within my Composer environment will pull/listen for a message from Pub/Sub. Upon receipt of a message from Pub/Sub, the data will be extracted from the sheet, loaded into BigQuery, and transformed with DBT. 
 
@@ -39,3 +39,6 @@ BigQuery
 
 DBT Lineage Graph
 ![DBT Lineage Graph](images_readme/9_dbt_lineagegraph.png)
+
+Looker Studio
+![Looker Studio](images_readme/10_looker.png)
