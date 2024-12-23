@@ -41,4 +41,4 @@ DBT Lineage Graph
 ![DBT Lineage Graph](images_readme/9_dbt_lineagegraph.png)
 
 Looker Studio
-![Looker Studio](images_readme/10_looker.png)
+![Looker Studio](images_readme/10_Looker.png)
